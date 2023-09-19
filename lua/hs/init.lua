@@ -7,5 +7,6 @@ local function setup()
 end
 
 return {
-    some_function = some_function
+    some_function = some_function,
+    setup = setup
 }
