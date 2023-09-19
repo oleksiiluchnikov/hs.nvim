@@ -42,4 +42,21 @@ function M.inspect(args)
     vim.notify(output)
 end
 
+function M.reload()
+    M.cmd("hs.reload()")
+end
+
+function M.notify(options)
+    local title = options.title or "Neovim"
+    local message = options.message or ""
+    local timeout = options.timeout or 5
+    local hs_cmd = "hs.notify.new({title='" .. title .. "', informativeText='" .. message .. "'}):send()"
+    M.cmd(hs_cmd)
+end
+
+function M.source(file)
+    local cmd = "dofile('" .. file .. "')"
+    M.cmd(cmd)
+end
+
 return M
