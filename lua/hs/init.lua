@@ -1,12 +1,13 @@
-local function some_function()
-    print("Hello World!")
+local M = {}
+
+local Health = require("hs.health")
+
+function M.setup()
+    if not Health.check({ checkhealth = false, loaded = false }) then
+        return
+    end
+
+    print("Hammerspoon is installed")
 end
 
-local function setup()
-    print("Setup")
-end
-
-return {
-    some_function = some_function,
-    setup = setup
-}
+return M
