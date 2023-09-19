@@ -1,10 +1,13 @@
 local M = {}
 
-local ipc = require("hs.ipc")
-
 function M.setup()
     vim.notify("Hammerspoon is loading")
-    ipc.setup()
+end
+
+function M.configdir()
+    local hs_configdir = vim.fn.system("hs -c 'hs.configdir'")
+    local cmd = "edit " .. hs_configdir
+    vim.cmd(cmd)
 end
 
 return M
